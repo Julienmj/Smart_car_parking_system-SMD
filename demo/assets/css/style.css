@@ -55,6 +55,11 @@
     --transition-slow: 0.5s ease;
 }
 
+/* TEST STYLES - These should be very visible */
+body {
+    background: red !important;
+}
+
 /* Reset & Base Styles */
 * {
     margin: 0;
