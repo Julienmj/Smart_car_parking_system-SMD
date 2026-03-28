@@ -8,6 +8,31 @@
   status = 200
 
 [[redirects]]
+  from = "/login.php"
+  to = "/login.html"
+  status = 301
+
+[[redirects]]
+  from = "/register.php"
+  to = "/register.html"
+  status = 301
+
+[[redirects]]
+  from = "/dashboard-admin.php"
+  to = "/dashboard-admin.html"
+  status = 301
+
+[[redirects]]
+  from = "/dashboard-client.php"
+  to = "/dashboard-client.html"
+  status = 301
+
+[[redirects]]
+  from = "/payment.php"
+  to = "/payment.html"
+  status = 301
+
+[[redirects]]
   from = "/*.php"
   to = "/index.html"
   status = 200
