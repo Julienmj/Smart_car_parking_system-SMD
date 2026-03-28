@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: smart-parking-system
+    env: php
+    plan: free
+    buildCommand: "composer install --no-dev --optimize-autoloader"
+    startCommand: "apache2-foreground"
+    repo: https://github.com/Julienmj/Smart_car_parking_system-SMD.git
+    rootDir: /
+    healthCheckPath: /health-check.php
+    autoDeploy: true
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: ${RAILWAY_PUBLIC_DOMAIN}
+      - fromDatabase:
+          name: parking-db
+          property: DATABASE_URL
+
+databases:
+  - name: parking-db
+    databaseName: parking_system
+    user: parking_user
+    plan: free
