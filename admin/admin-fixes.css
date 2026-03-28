@@ -1,0 +1,387 @@
+/* Admin Page Fixes - Additional Styles */
+
+/* Ensure admin pages have proper styling */
+.admin-page {
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+/* Fix table containers */
+.data-table-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: var(--spacing-lg) 0;
+    box-shadow: var(--shadow-md);
+}
+
+/* Fix table headers */
+.data-table thead th {
+    background: var(--secondary-bg);
+    color: var(--accent-cyan);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--accent-cyan);
+}
+
+/* Fix table rows */
+.data-table tbody tr {
+    transition: var(--transition-fast);
+}
+
+.data-table tbody tr:hover {
+    background: rgba(0, 212, 255, 0.05);
+}
+
+/* Fix table action buttons */
+.table-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.table-action-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition-fast);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.table-action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.table-action-btn.edit {
+    border-color: var(--info-blue);
+    color: var(--info-blue);
+}
+
+.table-action-btn.edit:hover {
+    background: var(--info-blue);
+    color: var(--text-primary);
+}
+
+.table-action-btn.delete {
+    border-color: var(--error-red);
+    color: var(--error-red);
+}
+
+.table-action-btn.delete:hover {
+    background: var(--error-red);
+    color: var(--text-primary);
+}
+
+/* Fix status badges */
+.status-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.status-badge.active {
+    background: rgba(0, 255, 136, 0.2);
+    color: var(--success-green);
+    border: 1px solid var(--success-green);
+}
+
+.status-badge.completed {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+}
+
+.status-badge.occupied {
+    background: rgba(255, 71, 87, 0.2);
+    color: var(--error-red);
+    border: 1px solid var(--error-red);
+}
+
+.status-badge.pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: var(--warning-yellow);
+    border: 1px solid var(--warning-yellow);
+}
+
+.status-badge.vip {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border: 1px solid #ffd700;
+}
+
+.status-badge.disabled {
+    background: rgba(95, 159, 255, 0.2);
+    color: #5f9fff;
+    border: 1px solid #5f9fff;
+}
+
+/* Fix page headers */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--accent-cyan);
+    margin: 0;
+}
+
+/* Fix filters section */
+.filters-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.filters-form {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.filter-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Fix statistics boxes */
+.slot-stats,
+.user-stats,
+.session-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.stat-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: var(--transition-fast);
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-cyan);
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Fix modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 26, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-fast);
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: var(--transition-fast);
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-cyan);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+}
+
+.modal-body {
+    padding: var(--spacing-lg);
+}
+
+/* Fix pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+    flex-wrap: wrap;
+}
+
+.pagination-link,
+.pagination-number {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.pagination-link:hover,
+.pagination-number:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.pagination-number.active {
+    background: var(--accent-cyan);
+    color: var(--primary-bg);
+    border-color: var(--accent-cyan);
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filters-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .slot-stats,
+    .user-stats,
+    .session-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .table-actions {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .table-action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .data-table {
+        font-size: 0.8rem;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: var(--spacing-sm);
+    }
+    
+    .pagination {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .slot-stats,
+    .user-stats,
+    .session-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: var(--spacing-md);
+    }
+}
