@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Smart Parking System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <div class="demo-banner-content">
+            <span>🚀 Demo Mode - Static Deployment</span>
+            <span>•</span>
+            <span>No Backend Database</span>
+            <span>•</span>
+            <a href="index.html" style="color: #ffd700; text-decoration: none;">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-icon">🅿️</span>
+                    <span class="brand-text">SMART PARKING</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="nav-user">
+                    <span class="user-name">👑 Demo Admin</span>
+                    <button onclick="logout()" class="btn btn-outline">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Admin Dashboard</h1>
+                <p>System overview and management controls.</p>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🅿️</div>
+                    <div class="stat-info">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Total Slots</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Available</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🚗</div>
+                    <div class="stat-info">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Occupied</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <div class="stat-number">25</div>
+                        <div class="stat-label">Total Users</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Today Sessions</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <div class="stat-number">1,600</div>
+                        <div class="stat-label">Today Revenue</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Section -->
+            <div class="dashboard-section">
+                <h2>Analytics Overview</h2>
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Revenue Trend</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="revenueChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>Slot Distribution</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="slotChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Management Actions -->
+            <div class="dashboard-section">
+                <h2>Management Actions</h2>
+                <div class="actions-grid">
+                    <button onclick="manageSlots()" class="btn btn-primary action-btn">
+                        <span>🅿️</span>
+                        <div>
+                            <div class="action-title">Manage Slots</div>
+                            <div class="action-desc">Add, edit, or remove parking slots</div>
+                        </div>
+                    </button>
+                    
+                    <button onclick="manageUsers()" class="btn btn-outline action-btn">
+                        <span>👥</span>
+                        <div>
+                            <div class="action-title">Manage Users</div>
+                            <div class="action-desc">View and manage user accounts</div>
+                        </div>
+                    </button>
+                    
+                    <button onclick="viewSessions()" class="btn btn-outline action-btn">
+                        <span>📊</span>
+                        <div>
+                            <div class="action-title">View Sessions</div>
+                            <div class="action-desc">Monitor parking sessions</div>
+                        </div>
+                    </button>
+                    
+                    <button onclick="generateReports()" class="btn btn-outline action-btn">
+                        <span>📈</span>
+                        <div>
+                            <div class="action-title">Generate Reports</div>
+                            <div class="action-desc">Export analytics and reports</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="dashboard-section">
+                <h2>Recent Activity</h2>
+                <div class="activity-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Slot</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:45 AM</td>
+                                <td>John Doe</td>
+                                <td>Check-in</td>
+                                <td>A2</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>09:30 AM</td>
+                                <td>Jane Smith</td>
+                                <td>Check-in</td>
+                                <td>VIP1</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>09:15 AM</td>
+                                <td>Bob Wilson</td>
+                                <td>Checkout</td>
+                                <td>B3</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>08:45 AM</td>
+                                <td>Alice Brown</td>
+                                <td>Check-in</td>
+                                <td>A1</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>08:30 AM</td>
+                                <td>Charlie Davis</td>
+                                <td>Checkout</td>
+                                <td>A4</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Smart Parking System</h3>
+                    <p class="footer-text">Modern, efficient parking management solution for smart cities.</p>
+                    <p class="footer-text">🚀 This is a static demo version</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard-admin.html">Admin Dashboard</a></li>
+                        <li><a href="#" onclick="logout()">Logout</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Demo Features</h4>
+                    <div class="footer-tech">
+                        <span>Static Demo</span>
+                        <span>Mock Data</span>
+                        <span>UI Showcase</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Parking System. All rights reserved.</p>
+                <p>Built with ❤️ for smarter parking solutions</p>
+                <p>🚀 Demo deployed on Netlify</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="demo-data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+        });
+
+        function initializeCharts() {
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Revenue (RWF)',
+                        data: [1200, 1900, 1500, 2100, 2400, 1800, 1600],
+                        borderColor: '#00d4ff',
+                        backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Slot Distribution Chart
+            const slotCtx = document.getElementById('slotChart').getContext('2d');
+            new Chart(slotCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Standard', 'VIP', 'Disabled', 'Occupied'],
+                    datasets: [{
+                        data: [6, 2, 2, 4],
+                        backgroundColor: [
+                            '#10b981',
+                            '#f59e0b',
+                            '#3b82f6',
+                            '#ef4444'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function manageSlots() {
+            showDemoNotification('Demo: Slot management requires backend functionality', 'info');
+        }
+
+        function manageUsers() {
+            showDemoNotification('Demo: User management requires backend database', 'info');
+        }
+
+        function viewSessions() {
+            showDemoNotification('Demo: Session viewing requires backend data', 'info');
+        }
+
+        function generateReports() {
+            showDemoNotification('Demo: Report generation requires backend processing', 'info');
+        }
+
+        function logout() {
+            showDemoNotification('Demo: Logging out...', 'info');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+
+        function showDemoNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 8px;
+                color: white;
+                font-weight: 500;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            switch(type) {
+                case 'success':
+                    notification.style.backgroundColor = '#10b981';
+                    break;
+                case 'error':
+                    notification.style.backgroundColor = '#ef4444';
+                    break;
+                case 'warning':
+                    notification.style.backgroundColor = '#f59e0b';
+                    break;
+                default:
+                    notification.style.backgroundColor = '#3b82f6';
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

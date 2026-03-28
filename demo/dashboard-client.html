@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - Smart Parking System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <div class="demo-banner-content">
+            <span>🚀 Demo Mode - Static Deployment</span>
+            <span>•</span>
+            <span>No Backend Database</span>
+            <span>•</span>
+            <a href="index.html" style="color: #ffd700; text-decoration: none;">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-icon">🅿️</span>
+                    <span class="brand-text">SMART PARKING</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="nav-user">
+                    <span class="user-name">👤 Demo Client</span>
+                    <button onclick="logout()" class="btn btn-outline">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Client Dashboard</h1>
+                <p>Welcome back! Here's your parking overview.</p>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🅿️</div>
+                    <div class="stat-info">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Available Slots</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🚗</div>
+                    <div class="stat-info">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Occupied Slots</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Total Sessions</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <div class="stat-number">2,400</div>
+                        <div class="stat-label">Total Fees (RWF)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Parking Map -->
+            <div class="dashboard-section">
+                <h2>Parking Availability</h2>
+                <div class="parking-map">
+                    <div class="floor-selector">
+                        <button class="btn btn-primary" onclick="showFloor(1)">Floor 1</button>
+                        <button class="btn btn-outline" onclick="showFloor(2)">Floor 2</button>
+                    </div>
+                    
+                    <div class="parking-grid" id="parkingGrid">
+                        <!-- Demo parking slots will be generated here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Active Session -->
+            <div class="dashboard-section">
+                <h2>Active Session</h2>
+                <div class="session-card">
+                    <div class="session-info">
+                        <div class="session-detail">
+                            <span class="label">Slot:</span>
+                            <span class="value">A1 (Standard)</span>
+                        </div>
+                        <div class="session-detail">
+                            <span class="label">Check-in:</span>
+                            <span class="value">09:30 AM</span>
+                        </div>
+                        <div class="session-detail">
+                            <span class="label">Duration:</span>
+                            <span class="value">2h 15min</span>
+                        </div>
+                        <div class="session-detail">
+                            <span class="label">Current Fee:</span>
+                            <span class="value">400 RWF</span>
+                        </div>
+                    </div>
+                    <div class="session-actions">
+                        <button onclick="extendSession()" class="btn btn-outline">Extend Session</button>
+                        <button onclick="checkout()" class="btn btn-primary">Checkout</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Sessions -->
+            <div class="dashboard-section">
+                <h2>Recent Sessions</h2>
+                <div class="sessions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Slot</th>
+                                <th>Duration</th>
+                                <th>Fee</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-03-27</td>
+                                <td>B2</td>
+                                <td>1h 30min</td>
+                                <td>200 RWF</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2024-03-26</td>
+                                <td>A3</td>
+                                <td>3h 15min</td>
+                                <td>700 RWF</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2024-03-25</td>
+                                <td>VIP1</td>
+                                <td>45min</td>
+                                <td>0 RWF</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Smart Parking System</h3>
+                    <p class="footer-text">Modern, efficient parking management solution for smart cities.</p>
+                    <p class="footer-text">🚀 This is a static demo version</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard-client.html">Dashboard</a></li>
+                        <li><a href="#" onclick="logout()">Logout</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Demo Features</h4>
+                    <div class="footer-tech">
+                        <span>Static Demo</span>
+                        <span>Mock Data</span>
+                        <span>UI Showcase</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Parking System. All rights reserved.</p>
+                <p>Built with ❤️ for smarter parking solutions</p>
+                <p>🚀 Demo deployed on Netlify</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="demo-data.js"></script>
+    <script>
+        // Initialize parking grid
+        document.addEventListener('DOMContentLoaded', function() {
+            generateParkingGrid();
+        });
+
+        function generateParkingGrid() {
+            const grid = document.getElementById('parkingGrid');
+            const slots = [
+                {id: 1, code: 'A1', type: 'standard', status: 'occupied'},
+                {id: 2, code: 'A2', type: 'standard', status: 'available'},
+                {id: 3, code: 'A3', type: 'standard', status: 'available'},
+                {id: 4, code: 'A4', type: 'vip', status: 'occupied'},
+                {id: 5, code: 'A5', type: 'vip', status: 'available'},
+                {id: 6, code: 'A6', type: 'disabled', status: 'available'},
+                {id: 7, code: 'A7', type: 'standard', status: 'occupied'},
+                {id: 8, code: 'A8', type: 'standard', status: 'available'},
+                {id: 9, code: 'A9', type: 'standard', status: 'available'},
+                {id: 10, code: 'A10', type: 'vip', status: 'occupied'}
+            ];
+
+            grid.innerHTML = '';
+            slots.forEach(slot => {
+                const slotElement = document.createElement('div');
+                slotElement.className = `parking-slot ${slot.status} ${slot.type}`;
+                slotElement.innerHTML = `
+                    <div class="slot-code">${slot.code}</div>
+                    <div class="slot-type">${slot.type}</div>
+                    <div class="slot-status">${slot.status === 'available' ? 'Available' : 'Occupied'}</div>
+                `;
+                
+                if (slot.status === 'available') {
+                    slotElement.onclick = () => selectSlot(slot);
+                    slotElement.style.cursor = 'pointer';
+                }
+                
+                grid.appendChild(slotElement);
+            });
+        }
+
+        function showFloor(floor) {
+            showDemoNotification(`Demo: Showing Floor ${floor}`, 'info');
+            // Regenerate grid with different data for different floors
+            generateParkingGrid();
+        }
+
+        function selectSlot(slot) {
+            showDemoNotification(`Demo: Selected slot ${slot.code} - Check-in requires backend`, 'info');
+        }
+
+        function extendSession() {
+            showDemoNotification('Demo: Session extension requires backend', 'info');
+        }
+
+        function checkout() {
+            showDemoNotification('Demo: Checkout would redirect to payment page', 'info');
+            setTimeout(() => {
+                window.location.href = 'payment.html';
+            }, 2000);
+        }
+
+        function logout() {
+            showDemoNotification('Demo: Logging out...', 'info');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+
+        function showDemoNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 8px;
+                color: white;
+                font-weight: 500;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            switch(type) {
+                case 'success':
+                    notification.style.backgroundColor = '#10b981';
+                    break;
+                case 'error':
+                    notification.style.backgroundColor = '#ef4444';
+                    break;
+                case 'warning':
+                    notification.style.backgroundColor = '#f59e0b';
+                    break;
+                default:
+                    notification.style.backgroundColor = '#3b82f6';
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -346,9 +346,10 @@ For technical support or questions:
 ## 🚀 Quick Start
 
 ### Prerequisites
+- XAMPP/WAMP/MAMP or similar PHP development environment
+- MySQL database server
+- PHP 8.0 or higher
 - Modern web browser
-- GitHub account (for Netlify deployment)
-- Netlify account (free)
 
 ### Installation Steps
 
@@ -358,26 +359,30 @@ For technical support or questions:
    cd Smart_car_parking_system-SMD
    ```
 
-2. **Local Development**
-   ```bash
-   # Start a local server (optional)
-   python -m http.server 8000
-   # or use any static server
+2. **Database Setup**
+   ```sql
+   CREATE DATABASE parking_system;
+   -- Import sql/parking.sql file
    ```
 
-3. **Deploy to Netlify**
-   - Push to GitHub
-   - Connect to Netlify
-   - Deploy automatically
+3. **Configure & Run**
+   - Update database credentials in `includes/db.php` if needed
+   - Place the project in your web server's document root
+   - Access via: `http://localhost/Smart_car_parking_system-SMD/`
 
-### Netlify Deployment
-- **Build command**: `echo 'No build needed for static deployment'`
-- **Publish directory**: `public`
-- **Status**: Demo mode only (no backend functionality)
+### Default Credentials
+- **Admin**: `admin@parking.com` / `admin123`
+- **Client**: Register via the registration page
+
+### 🎨 Demo Version
+For a static demo showcase (no backend required):
+- Navigate to the `demo/` folder
+- Deploy to Netlify or any static hosting
+- See `demo/README.md` for details
 
 ### Demo vs Full Version
-- **Netlify Demo**: Frontend showcase only
-- **Full Version**: Requires PHP/MySQL hosting (see local development section)
+- **Full Version**: Complete PHP/MySQL application (this folder)
+- **Demo Version**: Static showcase only (`demo/` folder)
 
 ## 🎯 Project Highlights
 
@@ -392,69 +397,65 @@ For technical support or questions:
 - **Export Functionality** - CSV export for reports
 
 ### 🛠️ Technology Stack
+- **Backend**: PHP 8.0+, MySQL 8.0+, PDO
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Visualization**: Chart.js
+- **Typography**: Google Fonts (Bebas Neue, DM Sans)
+- **Architecture**: MVC pattern, RESTful APIs
+
+### 📊 Database Schema
+- **users** - User accounts and authentication
+- **parking_slots** - Physical parking spaces
+- **parking_sessions** - Parking session records  
+- **payments** - Payment transaction records
+
+### 🎨 Demo Technology Stack
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Deployment**: Netlify (static hosting)
 - **Visualization**: Chart.js
 - **Typography**: Google Fonts (Bebas Neue, DM Sans)
 - **Architecture**: Static site with demo data
 
-### 📊 Project Structure
-- **Frontend** - HTML5, CSS3, JavaScript
-- **Demo Data** - Mock API responses
-- **Netlify** - Static hosting platform
-- **GitHub** - Version control and deployment
-
-### 💰 Fee Structure (Demo)
+### 💰 Fee Structure
 - **First 30 minutes**: Free
 - **Standard slots**: 200 RWF/hour
 - **VIP slots**: 350 RWF/hour
 - **Disabled slots**: 200 RWF/hour
 
-## 🎯 Netlify Deployment
+## 🎯 Demo Deployment (Static)
 
-### Step-by-Step Guide
-1. **Push to GitHub**
-   ```bash
-   git add .
-   git commit -m "Ready for Netlify deployment"
-   git push origin main
-   ```
+### For Static Demo Only:
+Navigate to the `demo/` folder for a complete static demonstration.
 
-2. **Deploy to Netlify**
-   - Go to https://netlify.com
-   - Click "New site from Git"
-   - Connect GitHub repository
-   - Build settings:
-     - Build command: `echo 'No build needed for static deployment'`
-     - Publish directory: `public`
-   - Deploy site
-
-3. **Customize**
-   - Change site name
-   - Add custom domain (optional)
-   - Enable analytics
-
-### Demo Features
+### Demo Features:
 ✅ **Modern UI/UX** - Complete interface showcase  
 ✅ **Responsive Design** - Works on all devices  
 ✅ **Interactive Elements** - Animations and hover effects  
 ✅ **Demo Dashboard** - Layout and design demonstration  
 ✅ **Clear Limitations** - Users understand it's a demo  
 
+### Quick Demo Deploy:
+```bash
+cd demo
+# Deploy to Netlify, Vercel, or any static hosting
+```
+
 ## 🔧 Configuration
 
-### Netlify Settings
-```toml
-# netlify.toml
-[build]
-  publish = "public"
-  command = "echo 'No build needed'"
+### Database Connection
+```php
+// includes/db.php
+private static $host = 'localhost';
+private static $dbname = 'parking_system';
+private static $username = 'root';
+private static $password = ''; // Default XAMPP password
 ```
 
 ### Customization Options
 - **Colors**: Modify CSS variables in `assets/css/style.css`
-- **Demo Data**: Update `public/demo-data.js`
-- **Content**: Edit HTML files directly
+- **Fees**: Update calculation logic in `checkout.php`
+- **Slot Types**: Modify database and UI components
+- **Payment Methods**: Add/remove options in `payment.php`
 
 ## 🔒 Demo Mode Information
 
@@ -540,21 +541,26 @@ Check Netlify build logs in your dashboard for detailed error information.
 
 ```
 Smart_car_parking_system-SMD/
-├── public/                    # Static files for Netlify
-│   ├── index.html            # Main landing page
-│   ├── demo-index.html       # Demo version
-│   ├── assets/               # CSS and JS files
-│   ├── screenshots/          # Interface screenshots
-│   └── demo-data.js          # Demo data
-├── admin/                    # Admin management pages (for reference)
-├── api/                      # API endpoints (for reference)
-├── assets/                   # Static assets
-├── includes/                 # Shared components (for reference)
-├── sql/                      # Database files (for reference)
-├── netlify.toml              # Netlify configuration
-├── NETLIFY_DEPLOYMENT.md     # Deployment guide
-├── SCREENSHOT_GUIDE.md       # Screenshot instructions
-└── README.md                 # This file
+├── demo/                     # Static demo version
+│   ├── index.html          # Demo landing page
+│   ├── login.html           # Demo login
+│   ├── register.html        # Demo registration
+│   ├── dashboard-client.html # Demo client dashboard
+│   ├── dashboard-admin.html  # Demo admin dashboard
+│   ├── payment.html         # Demo payment interface
+│   ├── assets/              # Demo CSS and JS
+│   ├── screenshots/         # Interface screenshots
+│   ├── demo-data.js         # Mock data
+│   ├── netlify.toml         # Netlify configuration
+│   └── README.md            # Demo documentation
+├── admin/                   # Admin management pages
+├── api/                     # API endpoints
+├── assets/                  # Static assets
+├── includes/                # Shared components
+├── sql/                     # Database files
+├── SCREENSHOT_GUIDE.md      # Screenshot instructions
+├── NETLIFY_DEPLOYMENT.md    # Deployment guide
+└── README.md                # This file
 ```
 
 ## 🤝 Contributing
@@ -598,4 +604,15 @@ If you find this Smart Car Parking System demo useful, give it a star on GitHub!
 
 ## 🚀 Deploy Your Own Demo
 
-Ready to deploy your own version? Follow the **NETLIFY_DEPLOYMENT.md** guide for step-by-step instructions.
+Ready to deploy your own version? 
+
+### For Static Demo:
+1. Navigate to the `demo/` folder
+2. Follow the demo README instructions
+3. Deploy to Netlify, Vercel, or any static hosting
+
+### For Full Application:
+1. Set up PHP/MySQL environment
+2. Import database schema
+3. Configure database connection
+4. Deploy to PHP hosting platform
