@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking System - Demo Mode</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/demo-styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <div class="demo-banner-content">
+            <span>🚀 Demo Mode - Static Deployment</span>
+            <span>•</span>
+            <span>No Backend Database</span>
+            <span>•</span>
+            <a href="https://github.com/Julienmj/Smart_car_parking_system-SMD" target="_blank">View Full Project</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#" class="brand-link">
+                    <span class="brand-icon">🅿️</span>
+                    <span class="brand-text">SMART PARKING</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="nav-auth">
+                    <button onclick="showDemoLogin()" class="btn btn-outline">Demo Login</button>
+                    <button onclick="showDemoRegister()" class="btn btn-primary">Demo Register</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <canvas id="particleCanvas" class="particle-canvas"></canvas>
+            <div class="animated-grid" id="parkingGrid"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    SMART PARKING
+                    <span class="highlight">— DEMO MODE</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Experience the frontend interface of our intelligent parking management system. 
+                    This is a static demo showcasing the UI/UX design and interactions.
+                </p>
+                <div class="hero-buttons">
+                    <button onclick="showDemoDashboard()" class="btn btn-primary btn-large">
+                        <span>🚗</span> Try Demo Dashboard
+                    </button>
+                    <a href="https://github.com/Julienmj/Smart_car_parking_system-SMD" class="btn btn-outline btn-large" target="_blank">
+                        <span>📁</span> View Source Code
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-label">Demo Slots</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-label">Floors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Slot Types</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Demo Features Available</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">UI/UX Design</h3>
+                    <p class="feature-description">
+                        Experience the modern dark theme, smooth animations, and responsive design of our parking system interface.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Responsive Layout</h3>
+                    <p class="feature-description">
+                        Test the mobile-friendly design that works seamlessly across desktop, tablet, and mobile devices.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Interactive Elements</h3>
+                    <p class="feature-description">
+                        Explore the interactive parking slot visualization, hover effects, and micro-interactions throughout the interface.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Dashboard Layout</h3>
+                    <p class="feature-description">
+                        View the dashboard design with placeholder charts, statistics, and data visualization components.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Authentication UI</h3>
+                    <p class="feature-description">
+                        See the login and registration interfaces with form validation and error handling demonstrations.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3 class="feature-title">Payment Interface</h3>
+                    <p class="feature-description">
+                        Explore the payment processing interface with multiple payment method options and receipt design.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limitations Section -->
+    <section class="limitations">
+        <div class="container">
+            <h2 class="section-title">Demo Limitations</h2>
+            <div class="limitations-grid">
+                <div class="limitation-card">
+                    <div class="limitation-icon">❌</div>
+                    <h3>No Backend Processing</h3>
+                    <p>PHP backend and MySQL database are not available in this static demo.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <div class="limitation-icon">❌</div>
+                    <h3>No Real Data</h3>
+                    <p>All data shown is mock/demo data for illustration purposes only.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <div class="limitation-icon">❌</div>
+                    <h3>No User Accounts</h3>
+                    <p>Login and registration forms are for UI demonstration only.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <div class="limitation-icon">❌</div>
+                    <h3>No Actual Booking</h3>
+                    <p>Parking slot selection and booking are simulated without real functionality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="section-title">Want the Full Experience?</h2>
+            <p class="cta-subtitle">
+                Deploy the complete application with PHP backend and MySQL database to enjoy all features.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Julienmj/Smart_car_parking_system-SMD" class="btn btn-primary btn-large" target="_blank">
+                    <span>🚀</span> Get Full Source Code
+                </a>
+                <a href="DEPLOYMENT_GUIDE.md" class="btn btn-outline btn-large" target="_blank">
+                    <span>📖</span> View Deployment Guide
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Smart Parking System</h3>
+                    <p class="footer-text">Modern, efficient parking management solution for smart cities.</p>
+                    <p class="footer-text">🚀 This is a static demo version</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/Julienmj/Smart_car_parking_system-SMD" target="_blank">GitHub Repository</a></li>
+                        <li><a href="DEPLOYMENT_GUIDE.md" target="_blank">Deployment Guide</a></li>
+                        <li><a href="README.md" target="_blank">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Technologies</h4>
+                    <div class="footer-tech">
+                        <span>PHP 8.0+</span>
+                        <span>MySQL 8.0+</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Parking System. All rights reserved.</p>
+                <p>Built with ❤️ for smarter parking solutions</p>
+                <p>🚀 Demo deployed on Netlify</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="demo-data.js"></script>
+    <script>
+        // Demo-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show demo notification
+            setTimeout(() => {
+                showDemoNotification('🚀 Welcome to the Smart Parking System Demo!', 'info');
+            }, 1000);
+            
+            // Animate hero statistics
+            animateStats();
+            
+            // Initialize particle animation
+            initParticleAnimation();
+            
+            // Create animated parking grid
+            createParkingGrid();
+        });
+
+        function showDemoLogin() {
+            showDemoNotification('Demo: Login interface would appear here', 'info');
+        }
+
+        function showDemoRegister() {
+            showDemoNotification('Demo: Registration interface would appear here', 'info');
+        }
+
+        function showDemoDashboard() {
+            showDemoNotification('Demo: Dashboard would load with real-time data', 'info');
+            // Scroll to features section
+            document.querySelector('.features').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

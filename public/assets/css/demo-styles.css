@@ -1,0 +1,133 @@
+/* Demo Banner Styles */
+.demo-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.demo-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.demo-banner a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.demo-banner a:hover {
+    text-decoration: underline;
+}
+
+/* Limitations Section */
+.limitations {
+    padding: 80px 0;
+    background: #1a1a2e;
+}
+
+.limitations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.limitation-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.limitation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.limitation-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.limitation-card h3 {
+    color: #ef4444;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.limitation-card p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    text-align: center;
+}
+
+.cta-subtitle {
+    color: #94a3b8;
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Footer Tech Tags */
+.footer-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.footer-tech span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #00d4ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .demo-banner-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .limitations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-tech {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking System - Find Your Spot Instantly</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#" class="brand-link">
+                    <span class="brand-icon">🅿️</span>
+                    <span class="brand-text">SMART PARKING</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="nav-auth">
+                    <a href="login.php" class="btn btn-outline">Login</a>
+                    <a href="register.php" class="btn btn-primary">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <canvas id="particleCanvas" class="particle-canvas"></canvas>
+            <div class="animated-grid" id="parkingGrid"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    SMART PARKING
+                    <span class="highlight">— FIND YOUR SPOT INSTANTLY</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Experience the future of parking with our intelligent, real-time parking management system. 
+                    No more circling, no more waiting—just seamless parking at your fingertips.
+                </p>
+                <div class="hero-buttons">
+                    <a href="login.php" class="btn btn-primary btn-large">
+                        <span>🚗</span> Login to Start
+                    </a>
+                    <a href="register.php" class="btn btn-outline btn-large">
+                        <span>📝</span> Register Now
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="20">0</div>
+                    <div class="stat-label">Parking Slots</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Floors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Slot Types</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Smart Parking?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🅿️</div>
+                    <h3 class="feature-title">Available Slots</h3>
+                    <p class="feature-description">
+                        Real-time availability updates across all floors. Find the perfect spot instantly with our intelligent slot management system.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Quick Check-in</h3>
+                    <p class="feature-description">
+                        Seamless check-in process with just a few clicks. No paperwork, no waiting—start your parking session instantly.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Auto Fee Calculation</h3>
+                    <p class="feature-description">
+                        Transparent, automatic fee calculation based on duration and slot type. No surprises—know exactly what you'll pay.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3 class="feature-title">Multi-Floor Support</h3>
+                    <p class="feature-description">
+                        Navigate multiple parking floors with ease. Visual floor maps guide you to your designated parking spot.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">♿</div>
+                    <h3 class="feature-title">Accessible Parking</h3>
+                    <p class="feature-description">
+                        Dedicated disabled parking slots with easy access. We prioritize inclusivity and convenience for all users.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👑</div>
+                    <h3 class="feature-title">VIP Experience</h3>
+                    <p class="feature-description">
+                        Premium VIP slots with enhanced features and priority access. Experience luxury parking at its finest.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Register/Login</h3>
+                        <p>Create your account or login to access the parking system</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Choose Your Spot</h3>
+                        <p>View available slots and select your preferred parking location</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Check-in Instantly</h3>
+                        <p>Start your parking session with a single click</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Park & Pay</h3>
+                        <p>Park your vehicle and pay automatically when you check out</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Smart Parking System</h3>
+                    <p class="footer-text">Modern, efficient parking management solution for smart cities.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="login.php">Login</a></li>
+                        <li><a href="register.php">Register</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contact</h4>
+                    <div class="footer-contact">
+                        <p>📧 support@smartparking.com</p>
+                        <p>📞 +250 788 123 456</p>
+                        <p>📍 Kigali, Rwanda</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <?php echo date('Y'); ?> Smart Parking System. All rights reserved.</p>
+                <p>Built with ❤️ for smarter parking solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Landing page specific animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate hero statistics
+            animateStats();
+            
+            // Initialize particle animation
+            initParticleAnimation();
+            
+            // Create animated parking grid
+            createParkingGrid();
+        });
+
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 30);
+            });
+        }
+
+        function initParticleAnimation() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 50;
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = Math.random() * 0.5 - 0.25;
+                    this.speedY = Math.random() * 0.5 - 0.25;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+                
+                draw() {
+                    ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Draw connections
+                particles.forEach((p1, index) => {
+                    particles.slice(index + 1).forEach(p2 => {
+                        const distance = Math.sqrt(
+                            Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)
+                        );
+                        
+                        if (distance < 100) {
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 * (1 - distance / 100)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        function createParkingGrid() {
+            const grid = document.getElementById('parkingGrid');
+            const slots = 20;
+            
+            for (let i = 0; i < slots; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'grid-slot';
+                slot.style.animationDelay = `${Math.random() * 2}s`;
+                
+                // Random status for visual effect
+                const status = Math.random() > 0.3 ? 'available' : 'occupied';
+                slot.classList.add(status);
+                
+                grid.appendChild(slot);
+            }
+        }
+    </script>
+</body>
+</html>
